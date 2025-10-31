@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        body { text-align: center; padding: 50px; }
+        #banner { margin: 20px auto; width: 728px; height: 90px; background: #eee; } /* Стили для баннера */
+    </style>
+</head>
+<body>
+    <h1>Redirecting in 5 seconds...</h1>
+    
+    <!-- Рекламный баннер: замени на реальный код от AdSense или вставь <img src="твоя_реклама.jpg"> -->
+    <div id="banner">
+        <!-- Пример placeholder баннера -->
+        <img src="https://via.placeholder.com/728x90?text=Your+Ad+Here" alt="Advertisement">
+        <!-- Или вставь скрипт AdSense здесь:
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXX" data-ad-slot="XXXX" data-ad-format="auto"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script> -->
+    </div>
+    
+    <script>
+        // Получаем целевую URL из параметра ?target
+        const params = new URLSearchParams(window.location.search);
+        const targetUrl = params.get('target');
+        
+        if (targetUrl) {
+            // Декодируем URL (на случай %编码)
+            const decodedUrl = decodeURIComponent(targetUrl);
+            
+            // Редирект через 5 секунд
+            setTimeout(() => {
+                window.location.href = decodedUrl;
+            }, 5000); // 5000 мс = 5 секунд, измени по вкусу
+        } else {
+            document.body.innerHTML += '<p>No target URL provided!</p>';
+        }
+    </script>
+</body>
+</html>
